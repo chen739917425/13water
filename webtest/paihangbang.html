@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <style type="text/css">
+        #paihangbang{
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+
+        .score1{
+            font-size: 28px;
+            color: #f5eab5;
+            font-weight: bolder;
+            font-family:Berlin Sans FB,cursive;
+        }
+        .fen{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            /*background-color:rgba(170,168,168,0.25);*/
+        }
+        .player_id{
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: bolder;
+            font-family:幼圆,cursive;
+        }
+        .name{
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: bolder;
+            font-family:幼圆,cursive;
+        }
+    </style>
+</head>
+<body>
+<div id="paihangbang" style="position: absolute;left: 0px;top:0px;">
+
+    <img src="排行榜.png" width="876px" height="137px" style="position: absolute;left:640px;top:30px;">
+    <img src="u50.png" width="80px" height="77px" style="position: absolute;left:460px;top:50px;">
+    <img src="u52.png" width="38px" height="38px" style="position: absolute;left:1050px;top:50px;">
+    <img src="u53.png" width="38px" height="38px" style="position: absolute;left:1090px;top:50px;">
+    <div>
+        <img  onclick="hidder()"  id="guanbiphb" src="u54.png" width="38px" height="38px" style="position: absolute;left:1130px;top:50px;">
+    </div>
+    <img src="横线.png"  style="position: absolute;left:372px;top:130px; ">
+<div>
+    <img src="格子.png"  style="position: absolute;left:440px;top:150px; ">
+    <img src="u60.png"  width="68px" height="64px" style="position: absolute;left:550px;top:148px; ">
+    <img src="u61.png"  width="68px" height="64px" style="position: absolute;left:738px;top:148px; ">
+    <img src="u62.png"  width="68px" height="64px" style="position: absolute;left:940px;top:148px; ">
+    <img src="格子.png" style="position: absolute;left:440px;top:225px; ">
+    <img src="u55.png" width="62px" height="55px" style="position: absolute;left:550px;top:230px; ">
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:210px;" >
+        <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:215px;" >
+        <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:215px;" >
+        <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+    </div>
+    <img src="格子.png" style="position: absolute;left:440px;top:300px; ">
+    <img src="u56.png" width="62px" height="55px" style="position: absolute;left:550px;top:305px; ">
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:285px;" >
+        <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:290px;" >
+        <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:290px;" >
+        <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+    </div>
+    <img src="格子.png" style="position: absolute;left:440px;top:375px; ">
+    <img src="u57.png" width="62px" height="55px" style="position: absolute;left:550px;top:380px; ">
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:360px;" >
+        <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:365px;" >
+        <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:365px;" >
+        <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+    </div>
+    <img src="格子.png" style="position: absolute;left:440px;top:450px; ">
+    <img src="u58.png" width="62px" height="55px" style="position: absolute;left:550px;top:455px; ">
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:435px;" >
+        <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:440px;" >
+        <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:440px;" >
+        <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+    </div>
+    <img src="格子.png" style="position: absolute;left:440px;top:525px; ">
+    <img src="u59.png" width="62px" height="55px" style="position: absolute;left:550px;top:530px; ">
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:510px;" >
+        <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:515px;" >
+        <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+    </div>
+    <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:515px;" >
+        <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+    </div>
+
+
+</div>
+</div>
+<script type="text/javascript">
+    /*document.getElementById('zhezhao').style.display="none";*/
+    function dianwo(){
+        document.getElementById('zhezhao').style.display="";
+    }
+    function hidder(){
+        document.getElementById('paihangbang').style.display="none";
+    }
+
+</script>
+</body>
+</html>

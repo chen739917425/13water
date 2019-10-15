@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人信息</title>
+    <style type="text/css">
+        body{TEXT-ALIGN: center;}
+        .c{
+            text-align: center;
+            border:ridge 1px #e1d09b;
+            height: 529px;
+            width: 882px;
+            border-radius: 10px;
+            background-color:#333333;
+        }
+        .c2{
+            border: 2px black;
+            height: 66px;
+            width: 882px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color:#3d3a36
+        }
+        .c3{
+
+            border:ridge 1px #e1d09b;
+            height: 387px;
+            width: 882px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background-color:rgba(61,58,54,0.89)
+        }
+        .c4{
+            font-family:微软雅黑,cursive;
+            color: #937a5a;
+            font-size:14px;
+            font-weight: bolder;
+        }
+        #perm{
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+        .historycard{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            background-color:rgba(170,168,168,0.25);
+        }
+        .timestamp{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+           /* background-color:rgba(170,168,168,0.25);*/
+        }
+        .score{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            /*background-color:rgba(170,168,168,0.25);*/
+        }
+        .zhanjuid{
+            font-size: 14px;
+            color: #cbc4b4;
+            font-weight: bolder;
+            font-family:微软雅黑,cursive;
+
+        }
+    </style>
+</head>
+<body>
+<div id="perm" style="position: absolute;left: 0px;top:0px;">
+<div class="c"style="position: absolute;left: 340px;top:60px;">
+
+</div>
+<!--<div class="c1" style="position: absolute;left: 340px;top:60px;  ">
+</div>-->
+<div class="c2"style="position: absolute;opacity: 50% ;left: 340px;top:60px;">
+</div>
+<div>
+    <img src="战绩统计.png" style="position: absolute;opacity: 50% ;height: 66px;left: 629px;top:60px; ">
+    <div>
+        <img  onclick="hidder()"  id="guanbiperm" src="uu.png" style="position: absolute;opacity: 50% ;width:30px;height: 30px;left: 1187px;top:68px; ">
+    </div>
+   <!-- <img src="uu.png" style="position: absolute;opacity: 50% ;width:30px;height: 30px;left: 1187px;top:68px; ">-->
+</div>
+<div class="c3"style="position: absolute;opacity: 50% ;left: 340px;top:202px;">
+</div>
+<div>
+    <img src="zj.png"style="position: absolute;opacity: 50% ;height: 66px;left: 345px;top:138px;">
+</div>
+<div>
+    <div onclick="openxq1()"  id="openxq">
+        <img   src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:232px;">
+        <div  class="historycard" style="position: absolute;opacity: 50% ;width:300px;height: 66px;left: 400px;top:240px;" >
+            <p>"card": [
+                "&J $K &A",
+                "#2 &2 #3 *3 $5",
+                "&3 #4 *5 $6 #7"
+                ]</p>
+        </div>
+    </div>
+ <!--   <img src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:232px;">-->
+    <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:275px;" >
+        <p  class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+    </div>
+    <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:275px;" >
+        <p  class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+    </div>
+    <div onclick="openxq2()"  id="openxq2">
+        <img   src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:332px;">
+        <div  class="historycard" style="position: absolute;opacity: 50% ;width:300px;height: 66px;left: 400px;top:340px;" >
+            <p>"card": [
+                "&J $K &A",
+                "#2 &2 #3 *3 $5",
+                "&3 #4 *5 $6 #7"
+                ]</p>
+        </div>
+    </div>
+    <!--<img src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:332px;">-->
+    <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:375px;" >
+        <p  class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+    </div>
+    <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:375px;" >
+        <p  class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+    </div>
+    <div onclick="openxq3()"  id="openxq3">
+        <img   src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:432px;">
+        <div  class="historycard" style="position: absolute;opacity: 50% ;width:300px;height: 66px;left: 400px;top:440px;" >
+            <p>"card": [
+                "&J $K &A",
+                "#2 &2 #3 *3 $5",
+                "&3 #4 *5 $6 #7"
+                ]</p>
+        </div>
+    </div>
+   <!-- <img src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:432px;">-->
+    <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:475px;" >
+        <p  class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+    </div>
+    <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:475px;" >
+        <p  class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+    </div>
+    <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 1110px;top:167px;" >
+        <p  class="zhanjuid" style="position: absolute;opacity: 50% ;" >战局id：</p>
+    </div>
+  <!--  <a  class="c4" style="position: absolute;opacity: 50% ;left: 800px;top:488px" >时间戳：</a>-->
+</div>
+</div>
+<script type="text/javascript">
+    /*document.getElementById('zhezhao').style.display="none";*/
+    function openxq1(){
+        document.getElementById('xiangqing').style.display="";
+    }
+    function openxq2(){
+        document.getElementById('xiangqing').style.display="";
+    }
+    function openxq3(){
+        document.getElementById('xiangqing').style.display="";
+    }
+    function hidder(){
+        document.getElementById('perm').style.display="none";
+    }
+
+</script>
+</body>
+</html>
+

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对战</title>
+    <style type="text/css">
+        .bgi{
+            text-align: center;
+        }
+        .img{
+            height: 734px;
+            width: 1510px;
+        }
+        .bt1{
+            font-family: 微软雅黑,cursive;
+            width: 163px;
+            height: 45px;
+            border:ridge 1px #e1d09b;
+            font-size: medium;
+            color: rgba(255,255,255,0.88);
+            text-shadow:5px 5px 5px black;
+        }
+        .bt2{
+            font-family: 微软雅黑,cursive;
+            width: 83px;
+            height: 45px;
+            border:ridge 1px #e1d09b;
+            font-size: medium;
+            color: rgba(255,255,255,0.88);
+            text-shadow:5px 5px 5px black;
+        }
+        .juid{
+            height: 24px;
+            width: 314px;
+            border-radius: 24px;
+            background-color:#35425c
+
+        }
+        .zhanjuid{
+            font-size: 14px;
+            color: #cbc4b4;
+            font-weight: bolder;
+            font-family:微软雅黑,cursive;
+
+        }
+        .user{
+            width:89px;
+            height: 130px;
+            color: rgba(255,255,255,0.06);
+            border:solid 1px #797979;
+            border-radius: 10px;
+        }
+        .username{
+            font-size: 14px;
+            font-family:微软雅黑,cursive;
+            color: rgba(255,255,255,0.75);
+        }
+        .duizhancard{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            background-color:rgba(170,168,168,0.25);
+        }
+
+
+
+        /*历史对战*/
+        .c{
+            text-align: center;
+            border:ridge 1px #e1d09b;
+            height: 529px;
+            width: 882px;
+            border-radius: 10px;
+            background-color:#333333;
+        }
+        .c2{
+            border: 2px black;
+            height: 66px;
+            width: 882px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color:#3d3a36
+        }
+        .c3{
+
+            border:ridge 1px #e1d09b;
+            height: 387px;
+            width: 882px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background-color:rgba(61,58,54,0.89)
+        }
+        .c4{
+            font-family:微软雅黑,cursive;
+            color: #937a5a;
+            font-size:14px;
+            font-weight: bolder;
+        }
+        #perm{
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+        .historycard{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            background-color:rgba(170,168,168,0.25);
+        }
+        .timestamp{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+          /*  background-color:rgba(170,168,168,0.25);*/
+        }
+        .score{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+        /*    background-color:rgba(170,168,168,0.25);*/
+        }
+        .zhanjuid{
+            font-size: 14px;
+            color: #cbc4b4;
+            font-weight: bolder;
+            font-family:微软雅黑,cursive;
+
+        }
+
+        /*排行榜*/
+        #paihangbang{
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+        .score1{
+            font-size: 28px;
+            color: #f5eab5;
+            font-weight: bolder;
+            font-family:Berlin Sans FB,cursive;
+        }
+        .fen{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            /*background-color:rgba(170,168,168,0.25);*/
+        }
+        .player_id{
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: bolder;
+            font-family:幼圆,cursive;
+        }
+        .name{
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: bolder;
+            font-family:幼圆,cursive;
+        }
+
+        /*对局详情*/
+        .kuang{
+            text-align: center;
+            border:ridge 1px #e1d09b;
+            height: 602px;
+            width: 828px;
+            border-radius: 10px;
+            background-color:#3d3a36;
+        }
+        .kuang2{
+            text-align: center;
+
+            height: 155px;
+            width: 828px;
+            border-radius: 10px;
+
+        }
+        .zhanjuid2{
+            font-size: 14px;
+            color: #9a836d;
+            font-weight: bolder;
+            font-family:微软雅黑,cursive;
+        }
+        .username1{
+            font-size: 14px;
+            font-family:幼圆,cursive;
+            color: #a69e8f;
+        }
+        #guanbixiangqing{
+            height: 40px;
+            width: 40px;
+        }
+        #xiangqing{
+            /*border:ridge 1px #e1d09b;*/
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+        .timestamp1{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            /* background-color:rgba(170,168,168,0.25);*/
+        }
+        .card{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            background-color:rgba(170,168,168,0.25);
+        }
+    </style>
+</head>
+<body>
+
+<div class="bgi">
+    <img src="对战bg.jpg" class="img">
+</div>
+<div class="juid"style="position: absolute ;left: 610px;top:8px;">
+</div>
+<div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 720px;top: -2px;" >
+    <p  class="zhanjuid" style="position: absolute;opacity: 50% ;" >战局id：</p>
+</div>
+<div class="user"style="position: absolute ;left: 480px;top:550px;">
+</div>
+<p  class="username" style="position: absolute;left: 510px;top: 560px ">赌王</p>
+
+<img src="u50.png" onclick="dianwo1()" width="55px" height="52px" style="position: absolute;left:1275px;top:10px;">
+<img src="历史对战.png" onclick="dianwo()" width="55px" height="52px" style="position: absolute;left:1210px;top:10px;">
+<img src="注销.png" onclick="window.location.href='denglu.html'" width="48px" height="47px" style="position: absolute;left:1345px;top:13px;">
+<div  class="duizhancard" style="position: absolute;opacity: 50% ;width:200px;height: 230px;left: 250px;top:260px;" >
+    <p>"card": [
+        "&J $K &A",
+        "#2 &2 #3 *3 $5",
+        "&3 #4 *5 $6 #7"
+        ]</p>
+</div>
+<div  class="duizhancard" style="position: absolute;opacity: 50% ;width:200px;height: 230px;left: 668px;top:140px;" >
+    <p>"card": [
+        "&J $K &A",
+        "#2 &2 #3 *3 $5",
+        "&3 #4 *5 $6 #7"
+        ]</p>
+</div>
+<div  class="duizhancard" style="position: absolute;opacity: 50% ;width:200px;height: 230px;left: 668px;top:400px;" >
+    <p>"card": [
+        "&J $K &A",
+        "#2 &2 #3 *3 $5",
+        "&3 #4 *5 $6 #7"
+        ]</p>
+</div>
+<div  class="duizhancard" style="position: absolute;opacity: 50% ;width:200px;height: 230px;left: 1080px;top:260px;" >
+    <p>"card": [
+        "&J $K &A",
+        "#2 &2 #3 *3 $5",
+        "&3 #4 *5 $6 #7"
+        ]</p>
+</div>
+<div >
+    <input id="fapai" class="bt1" type="button"  style="display:block;position:fixed; left:693px; top:320px;border-radius:10px;background-color:#cf9447" value="开始发牌"  />
+</div>
+<div >
+    <input id="chupai" class="bt2" type="button"  style="display: none;position:fixed; left:933px; top:400px;border-radius:10px;background-color:#25795f" value="出牌"  />
+</div>
+<!--历史对战-->
+<div id="perm" style="position: absolute;left: 0px;top:0px;">
+    <div class="c"style="position: absolute;left: 340px;top:60px;">
+
+    </div>
+    <!--<div class="c1" style="position: absolute;left: 340px;top:60px;  ">
+    </div>-->
+    <div class="c2"style="position: absolute;opacity: 50% ;left: 340px;top:60px;">
+    </div>
+    <div>
+        <img src="战绩统计.png" style="position: absolute;opacity: 50% ;height: 66px;left: 629px;top:60px; ">
+        <div>
+            <img  onclick="hidder()"  id="guanbiperm" src="uu.png" style="position: absolute;opacity: 50% ;width:30px;height: 30px;left: 1187px;top:68px; ">
+        </div>
+        <!-- <img src="uu.png" style="position: absolute;opacity: 50% ;width:30px;height: 30px;left: 1187px;top:68px; ">-->
+    </div>
+    <div class="c3"style="position: absolute;opacity: 50% ;left: 340px;top:202px;">
+    </div>
+    <div>
+        <img src="zj.png"style="position: absolute;opacity: 50% ;height: 66px;left: 345px;top:138px;">
+    </div>
+    <div>
+        <div onclick="openxq1()"  id="openxq">
+            <img   src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:232px;">
+            <div  class="historycard" style="position: absolute;opacity: 50% ;width:300px;height: 66px;left: 400px;top:240px;" >
+                <p>"card": [
+                    "&J $K &A",
+                    "#2 &2 #3 *3 $5",
+                    "&3 #4 *5 $6 #7"
+                    ]</p>
+            </div>
+        </div>
+        <!--   <img src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:232px;">-->
+        <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:275px;" >
+            <p  class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+        </div>
+        <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:275px;" >
+            <p  class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+        </div>
+        <div onclick="openxq2()"  id="openxq2">
+            <img   src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:332px;">
+            <div  class="historycard" style="position: absolute;opacity: 50% ;width:300px;height: 66px;left: 400px;top:340px;" >
+                <p>"card": [
+                    "&J $K &A",
+                    "#2 &2 #3 *3 $5",
+                    "&3 #4 *5 $6 #7"
+                    ]</p>
+            </div>
+        </div>
+        <!--<img src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:332px;">-->
+        <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:375px;" >
+            <p  class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+        </div>
+        <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:375px;" >
+            <p  class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+        </div>
+        <div onclick="openxq3()"  id="openxq3">
+            <img   src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:432px;">
+            <div  class="historycard" style="position: absolute;opacity: 50% ;width:300px;height: 66px;left: 400px;top:440px;" >
+                <p>"card": [
+                    "&J $K &A",
+                    "#2 &2 #3 *3 $5",
+                    "&3 #4 *5 $6 #7"
+                    ]</p>
+            </div>
+        </div>
+        <!-- <img src="格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:432px;">-->
+        <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:475px;" >
+            <p  class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+        </div>
+        <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:475px;" >
+            <p  class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+        </div>
+        <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 1110px;top:167px;" >
+            <p  class="zhanjuid" style="position: absolute;opacity: 50% ;" >战局id：</p>
+        </div>
+        <!--  <a  class="c4" style="position: absolute;opacity: 50% ;left: 800px;top:488px" >时间戳：</a>-->
+    </div>
+</div>
+
+<!--排行榜-->
+<div id="paihangbang" style="position: absolute;left: 0px;top:0px;">
+
+    <img src="排行榜.png" width="876px" height="137px" style="position: absolute;left:640px;top:30px;">
+    <img src="u50.png" width="80px" height="77px" style="position: absolute;left:460px;top:50px;">
+    <img src="u52.png" width="38px" height="38px" style="position: absolute;left:1050px;top:50px;">
+    <img src="u53.png" width="38px" height="38px" style="position: absolute;left:1090px;top:50px;">
+    <div>
+        <img  onclick="hidder1()"  id="guanbiphb" src="u54.png" width="38px" height="38px" style="position: absolute;left:1130px;top:50px;">
+    </div>
+    <img src="横线.png"  style="position: absolute;left:372px;top:130px; ">
+    <div>
+        <img src="格子.png"  style="position: absolute;left:440px;top:150px; ">
+        <img src="u60.png"  width="68px" height="64px" style="position: absolute;left:550px;top:148px; ">
+        <img src="u61.png"  width="68px" height="64px" style="position: absolute;left:738px;top:148px; ">
+        <img src="u62.png"  width="68px" height="64px" style="position: absolute;left:940px;top:148px; ">
+        <img src="格子.png" style="position: absolute;left:440px;top:225px; ">
+        <img src="u55.png" width="62px" height="55px" style="position: absolute;left:550px;top:230px; ">
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:210px;" >
+            <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:215px;" >
+            <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:215px;" >
+            <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="格子.png" style="position: absolute;left:440px;top:300px; ">
+        <img src="u56.png" width="62px" height="55px" style="position: absolute;left:550px;top:305px; ">
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:285px;" >
+            <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:290px;" >
+            <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:290px;" >
+            <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="格子.png" style="position: absolute;left:440px;top:375px; ">
+        <img src="u57.png" width="62px" height="55px" style="position: absolute;left:550px;top:380px; ">
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:360px;" >
+            <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:365px;" >
+            <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:365px;" >
+            <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="格子.png" style="position: absolute;left:440px;top:450px; ">
+        <img src="u58.png" width="62px" height="55px" style="position: absolute;left:550px;top:455px; ">
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:435px;" >
+            <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:440px;" >
+            <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:440px;" >
+            <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="格子.png" style="position: absolute;left:440px;top:525px; ">
+        <img src="u59.png" width="62px" height="55px" style="position: absolute;left:550px;top:530px; ">
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:510px;" >
+            <p  class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:515px;" >
+            <p  class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div  class="fen" style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:515px;" >
+            <p  class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+
+
+    </div>
+</div>
+<!--对局详情-->
+<div id="xiangqing" style="position: absolute;left: 0px;top:0px;">
+    <div class="kuang" style="position: absolute;left: 340px;top:60px;">
+    </div>
+    <div>
+        <img class="kuang2" src="四个玩家框.png" style="position: absolute;left: 340px;top:180px;">
+    </div>
+    <div>
+        <img src="对局详情.png" style="position: absolute;left: 680px;top:75px;">
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:920px;top:145px;" >
+        <p  class="zhanjuid2" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:360px;top:145px;" >
+        <p  class="zhanjuid2" style="position: absolute;opacity: 50% ;" >战局id：</p>
+    </div>
+    <div>
+        <img src="玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 402px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:422px;top:185px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:422px;top:285px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!--    <p class="username1" style="position: absolute;left: 422px;top: 185px  ">赌王</p>-->
+        <img src="玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 608px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:628px;top:185px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:628px;top:285px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!-- <p class="username1" style="position: absolute;left: 628px;top: 185px  ">赌王</p>-->
+        <img src="玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 822px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:824px;top:185px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:824px;top:285px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!--    <p class="username1" style="position: absolute;left: 842px;top: 185px  ">赌王</p>-->
+        <img src="玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 1032px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:1052px;top:185px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:1052px;top:285px;" >
+            <p  class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!--   <p class="username1" style="position: absolute;left: 1052px;top: 185px  ">赌王</p>-->
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:100px;height: 220px;left: 391px;top:360px;" >
+        <p>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:100px;height: 220px;left: 595px;top:360px;" >
+        <p>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:100px;height: 220px;left: 810px;top:360px;" >
+        <p>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:100px;height: 220px;left: 1020px;top:360px;" >
+        <p>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:391px;top:590px;" >
+        <p  class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:595px;top:590px;" >
+        <p  class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:810px;top:590px;" >
+        <p  class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:1020px;top:590px;" >
+        <p  class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+
+    <img src="金币.png" style=" height:40px;width:40px;position: absolute;left: 341px;top:590px;">
+    <div >
+        <img   onclick="hidder2()" id="guanbixiangqing" src="u54.png" style=" height:40px;width:40px;position: absolute;left: 1120px;top:70px;">
+    </div>
+</div>
+
+<script type="text/javascript">
+    document.getElementById("fapai").onclick=function () {
+        document.getElementById("chupai").style.display="block"
+        document.getElementById("fapai").style.display="none"
+    }
+    document.getElementById("chupai").onclick=function () {
+        document.getElementById("fapai").style.display="block"
+        document.getElementById("chupai").style.display="none"
+    }
+
+    // 历史对战
+    document.getElementById('perm').style.display="none";
+    function dianwo(){
+        document.getElementById('perm').style.display="";
+    }
+    function hidder(){
+        document.getElementById('perm').style.display="none";
+    }
+    function openxq1(){                                      //打开对局详情
+        document.getElementById('xiangqing').style.display="";
+    }
+    function openxq2(){
+        document.getElementById('xiangqing').style.display="";
+    }
+    function openxq3(){
+        document.getElementById('xiangqing').style.display="";
+    }
+    // 排行榜
+    document.getElementById('paihangbang').style.display="none";
+    function dianwo1(){
+        document.getElementById('paihangbang').style.display="";
+    }
+    function hidder1(){
+        document.getElementById('paihangbang').style.display="none";
+    }
+    // 对局详情
+    document.getElementById('xiangqing').style.display="none";
+
+    function hidder2(){
+        document.getElementById('xiangqing').style.display="none";
+    }
+</script>
+</body>
+</html>
