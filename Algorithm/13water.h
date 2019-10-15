@@ -1,42 +1,135 @@
 #include<iostream>
+#include<fstream>
 #include<algorithm>
 #include<vector>
+#include<bitset>
 #include<string>
 #include<cstring>
 #define sz(x) int(x.size())
+#define mp make_pair
 #define fi first
 #define se second
 #define dd(x) cout<<#x<<" = "<<x<<" "
 #define de(x) cout<<#x<<" = "<<x<<"\n"
 using namespace std;
 typedef vector<pair<int,int>> cards; //firsr:2-14, se:1-4
+inline int count(int x) {
+	int cnt = 0;
+	while (x) {
+		cnt += x & 1;
+		x >>= 1;
+	}
+	return cnt;
+}
 class autoPlayer{
 private:
 	cards card;
 	vector<int> set3,set5;
 	pair<int,int> f[10000],g[10000];
+	int value[3][10];				//º€÷µ∆¿π¿æÿ’Û 
 public:
 	autoPlayer(cards _card){
 		card=_card;
 		for (int i=1;i<(1<<13)-1;++i){
-			f[i].first=f[i].se=g[i].first=g[i].fi=0;
-			if (__builtin_popcount(i)==5){
+			if (count(i)==5){
 				set5.push_back(i);
 				f[i]=evaluate5(i);
 			}
-			if (__builtin_popcount(i)==3){
+			if (count(i)==3){
 				set3.push_back(i);
 				g[i]=evaluate3(i);
 			}
 		}
+		memset(value,0,sizeof(value));
+		value[0][1]=2;
+		value[0][2]=3;
+		for (int i=1;i<=7;++i)
+			value[1][i]=i+1; 
+		value[1][8]=50;
+		value[1][9]=100;
+		for (int i=1;i<=7;++i)
+			value[2][i]=i;
+		value[2][8]=15;
+		value[2][9]=20;
+	}
+	void getSolution(int choose[20],int a,int b,int c){
+		for (int i=0;i<13;++i){
+			if (a>>i&1)
+				choose[i]=0;
+			else if (b>>i&1)
+				choose[i]=1;
+			else
+				choose[i]=2;
+		}
+	}
+	cards calculate(){
+		int choose[20]={0};
+		int mxval=0;
+		for (auto i:set5)
+			for (auto j:set3){
+				if (i&j)
+					continue;
+				int k=(i|j)^((1<<13)-1);
+				if (!(f[i]>=f[k]&&f[k]>=g[j]))
+					continue;
+				int sum=value[2][f[i].fi]+value[1][f[k].fi]+value[0][g[j].fi];
+				if (sum>mxval){
+					mxval=sum;
+					getSolution(choose,j,k,i);
+				}
+			}
+		cards res;
+		for (int i=0;i<3;++i)
+			for (int j=0;j<sz(card);++j)
+				if (choose[j]==i)
+					res.push_back(card[j]);
+		return res;
 	}
 	pair<int,int> evaluate3(int status){
-		
+		cards c;
+		int mx=0;
+		for (int i=0;i<13;++i)
+			if (status>>i&1){
+				c.push_back(card[i]);
+				mx=max(mx,card[i].fi);
+			}
+		int val;
+		if (val=Triple(c))
+			return mp(4,val);
+		if (val=DZ(c))
+			return mp(1,val);
+		return mp(0,mx);
 	}
 	pair<int,int> evaluate5(int status){
-		
+		cards c;
+		int mx=0;
+		for (int i=0;i<13;++i)
+			if (status>>i&1){
+				c.push_back(card[i]);
+				mx=max(mx,card[i].fi);
+			}
+		int val;
+		if (val=THS(c))
+			return mp(9,val);
+		if (val=Boom(c))
+			return mp(8,val);
+		if (val=Hulu(c))
+			return mp(7,val);
+		if (val=TH(c))
+			return mp(6,val);
+		if (val=SZ(c))
+			return mp(5,val);
+		if (val=Triple(c))
+			return mp(4,val);
+		if (val=LD(c))
+			return mp(3,val);
+		if (val=DD(c))
+			return mp(2,val);
+		if (val=DZ(c))
+			return mp(1,val); 
+		return mp(0,mx);		
 	}
-	int THS(cards c){
+	int THS(cards& c){
 		sort(c.begin(),c.end());
 		for (int i=1;i<sz(c);++i)
 			if (c[i].fi-c[i-1].fi!=1||c[i].se!=c[i-1].se)
@@ -76,7 +169,7 @@ public:
 		}
 		return mx;
 	}
-	int SZ(cards c){
+	int SZ(cards& c){
 		sort(c.begin(),c.end());
 		for (int i=1;i<sz(c);++i)
 			if (c[i].fi-c[i-1].fi!=1)
@@ -116,7 +209,7 @@ public:
 			return max(t[0],t[1]);
 		return 0;
 	}
-	int DZ(cards c){
+	int DZ(cards& c){
 		int cnt[20]={0};
 		for(auto i:c)
 			cnt[i.fi]++;
