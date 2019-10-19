@@ -23,10 +23,51 @@ inline int count(int x) {
 }
 class autoPlayer{
 private:
+  	const int value[10][3][14] = {
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   JUNK
+      {  0,  0,  0,  0,  0,  0,  1,  1,  2,  2,  4,  7, 14, 33 },
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1 },
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   PAIR
+      {  0, 46, 48, 50, 51, 54, 56, 60, 63, 68, 74, 81, 89, 97 },
+      {  0,  2,  3,  4,  4,  5,  7,  8, 10, 12, 15, 19, 24, 33 },
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  1,  1,  1,  2,  3 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   TWO_PAIRS
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+      {  0,  0, 36, 37, 38, 40, 44, 46, 49, 54, 57, 62, 64,  0 },
+      {  0,  0,  2,  3,  4,  4,  6,  7,  8, 10, 11, 13, 13,  0 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   TWO_CONTINUE_PAIRS
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+      {  0,  0, 36, 37, 38, 40, 44, 46, 49, 54, 57, 62, 64,  0 },
+      {  0,  0,  2,  3,  4,  4,  6,  7,  8, 10, 11, 13, 13,  0 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   TRIPLE
+      {  0, 99, 99,100,100,100,100,100,100,100,100,100,100,100 },
+      {  0, 63, 65, 69, 71, 72, 73, 73, 73, 74, 74, 75, 75, 75 },
+      {  0, 11, 12, 14, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   STRAIGHT
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+      {  0,  0,  0,  0, 77, 78, 81, 83, 85, 87, 88, 90, 91, 92 },
+      {  0,  0,  0,  0, 16, 17, 20, 22, 24, 26, 28, 32, 33, 36 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   FLUSH
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+      {  0,  0,  0,  0,  0,  0, 93, 93, 93, 93, 94, 95, 97, 98 },
+      {  0,  0,  0,  0,  0,  0, 36, 36, 37, 38, 40, 44, 49, 61 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   FULL_HOUSE
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+      {  0, 98, 98, 99, 99, 99,100,100,100,100,100,100,100,100 },
+      {  0, 64, 67, 70, 71, 73, 75, 77, 80, 82, 85, 88, 91, 94 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   FOUR_OF_A_KIND
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+      {  0,100,100,100,100,100,100,100,100,100,100,100,100,100 },
+      {  0, 93, 94, 95, 95, 96, 96, 96, 97, 97, 98, 98, 98, 98 } },
+    { // 1   2   3   4   5   6   7   8   9   T   J   Q   K   A   STRAIGHT_FLUSH
+      {  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0 },
+      {  0,  0,  0,  0,100,100,100,100,100,100,100,100,100,100 },
+      {  0,  0,  0,  0, 98, 98, 99, 99, 99, 99, 99, 99,100,100 } }
+  	};
 	cards card;
 	vector<int> set3,set5;
-	pair<int,int> f[10000],g[10000];
-	int value[3][10];				//º€÷µ∆¿π¿æÿ’Û 
+	pair<int,int> f[10000];
 public:
 	autoPlayer(cards _card){
 		card=_card;
@@ -37,22 +78,11 @@ public:
 			}
 			if (count(i)==3){
 				set3.push_back(i);
-				g[i]=evaluate3(i);
+				f[i]=evaluate3(i);
 			}
 		}
-		memset(value,0,sizeof(value));
-		value[0][1]=2;
-		value[0][2]=3;
-		for (int i=1;i<=7;++i)
-			value[1][i]=i+1; 
-		value[1][8]=50;
-		value[1][9]=100;
-		for (int i=1;i<=7;++i)
-			value[2][i]=i;
-		value[2][8]=15;
-		value[2][9]=20;
 	}
-	void getSolution(int choose[20],int a,int b,int c){
+	void getSolution(int choose[20],int solution[3],int a,int b,int c){
 		for (int i=0;i<13;++i){
 			if (a>>i&1)
 				choose[i]=0;
@@ -61,21 +91,35 @@ public:
 			else
 				choose[i]=2;
 		}
+		solution[0]=a;
+		solution[1]=b;
+		solution[2]=c;
+	}
+	bool compare(int x,int y,int z,int solution[3]){
+		int cnt=0;
+		if (f[x]>f[solution[0]]) cnt++;
+		else if (f[x]<f[solution[0]]) cnt--;
+		if (f[y]>f[solution[1]]) cnt++;
+		else if (f[y]<f[solution[1]]) cnt--;
+		if (f[z]>f[solution[2]]) cnt++;
+		else if (f[z]<f[solution[2]]) cnt--;
+		return cnt>0;
 	}
 	cards calculate(){
 		int choose[20]={0};
-		int mxval=0;
+		int solution[3];
+		int mxval=-1;
 		for (auto i:set5)
 			for (auto j:set3){
 				if (i&j)
 					continue;
 				int k=(i|j)^((1<<13)-1);
-				if (!(f[i]>=f[k]&&f[k]>=g[j]))
+				if (!(f[i]>f[k]&&f[k]>f[j]))
 					continue;
-				int sum=value[2][f[i].fi]+value[1][f[k].fi]+value[0][g[j].fi];
-				if (sum>mxval){
+				int sum=value[f[i].fi][2][f[i].se-1]+value[f[k].fi][1][f[k].se-1]+value[f[j].fi][0][f[j].se-1];
+				if (sum>mxval||(sum==mxval&&compare(j,k,i,solution))){
 					mxval=sum;
-					getSolution(choose,j,k,i);
+					getSolution(choose,solution,j,k,i);
 				}
 			}
 		cards res;
