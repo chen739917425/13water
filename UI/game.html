@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对战</title>
+    <style type="text/css">
+        .bgi{
+            text-align: center;
+        }
+        .img{
+            height: 100%;
+            width: 100%;
+            font
+        }
+        .backgroundimg{
+            background-size: cover;
+        }
+        .bt1{
+            font-family: 微软雅黑,cursive;
+            width: 163px;
+            height: 45px;
+            border:ridge 1px #e1d09b;
+            font-size: medium;
+            color: rgba(255,255,255,0.88);
+            text-shadow:5px 5px 5px black;
+        }
+        .bt2{
+            font-family: 微软雅黑,cursive;
+            width: 83px;
+            height: 45px;
+            border:ridge 1px #e1d09b;
+            font-size: medium;
+            color: rgba(255,255,255,0.88);
+            text-shadow:5px 5px 5px black;
+        }
+        .juid{
+            height: 24px;
+            width: 314px;
+            border-radius: 24px;
+            background-color:#35425c
+
+        }
+        .zhanjuid{
+            font-size: 14px;
+            color: #cbc4b4;
+            font-weight: bolder;
+            font-family:微软雅黑,cursive;
+
+        }
+        .user{
+            width:89px;
+            height: 130px;
+            color: rgba(255,255,255,0.06);
+            border:solid 1px #797979;
+            border-radius: 10px;
+        }
+        .username{
+            font-size: 14px;
+            font-family:微软雅黑,cursive;
+            color: rgba(255,255,255,0.75);
+        }
+        .duizhancard{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            background-color:rgba(170,168,168,0.25);
+        }
+
+
+
+        /*历史对战*/
+        .c{
+            text-align: center;
+            border:ridge 1px #e1d09b;
+            height: 529px;
+            width: 882px;
+            border-radius: 10px;
+            background-color:#333333;
+        }
+        .c2{
+            border: 2px black;
+            height: 66px;
+            width: 882px;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+            background-color:#3d3a36
+        }
+        .c3{
+
+            border:ridge 1px #e1d09b;
+            height: 387px;
+            width: 882px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            background-color:rgba(61,58,54,0.89)
+        }
+        .c4{
+            font-family:微软雅黑,cursive;
+            color: #ec9e38;
+            font-size:14px;
+            font-weight: bolder;
+        }
+        #perm{
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+        .historycard{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            background-color:rgba(170,168,168,0.25);
+        }
+        .timestamp{
+            border:ridge 0px #cbc4b4;
+            border-radius: 10px;
+          /*  background-color:rgba(170,168,168,0.25);*/
+        }
+        .score{
+            border:ridge 0px #cbc4b4;
+            border-radius: 10px;
+        /*    background-color:rgba(170,168,168,0.25);*/
+        }
+        .zhanjuid{
+            font-size: 14px;
+            color: #cbc4b4;
+            font-weight: bolder;
+            font-family:微软雅黑,cursive;
+
+        }
+
+        /*排行榜*/
+        #paihangbang{
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+        .score1{
+            font-size: 28px;
+            color: #f5eab5;
+            font-weight: bolder;
+            font-family:Berlin Sans FB,cursive;
+        }
+        .fen{
+            border:ridge 1px #cbc4b4;
+            border-radius: 10px;
+            /*background-color:rgba(170,168,168,0.25);*/
+        }
+        .player_id{
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: bolder;
+            font-family:幼圆,cursive;
+        }
+        .name{
+            font-size: 24px;
+            color: #ffffff;
+            font-weight: bolder;
+            font-family:幼圆,cursive;
+        }
+
+        /*对局详情*/
+        .kuang{
+            text-align: center;
+            border:ridge 1px #e1d09b;
+            height: 602px;
+            width: 828px;
+            border-radius: 10px;
+            background-color:#3d3a36;
+        }
+        .kuang2{
+            text-align: center;
+
+            height: 155px;
+            width: 828px;
+            border-radius: 10px;
+
+        }
+        .zhanjuid2{
+            font-size: 14px;
+            color: #9a836d;
+            font-weight: bolder;
+            font-family:微软雅黑,cursive;
+        }
+        .username1{
+            font-size: 18px;
+            font-family:幼圆,cursive;
+            color: #e79e16;
+        }
+        #guanbixiangqing{
+            height: 40px;
+            width: 40px;
+        }
+        #xiangqing{
+            /*border:ridge 1px #e1d09b;*/
+            text-align: center;
+            border-radius: 10px;
+            height: 734px;
+            width: 1510px;
+
+        }
+        .timestamp1{
+            border:ridge 0px #cbc4b4;
+            border-radius: 10px;
+            /* background-color:rgba(170,168,168,0.25);*/
+        }
+        .card{
+            border:ridge 0px #cbc4b4;
+            border-radius: 10px;
+            background-color:rgba(170,168,168,0.25);
+        }
+    </style>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        // 显示手牌
+        function showCard(){
+            var card=localStorage.getItem('card').split(' ');
+            var mycard="";
+            for (var i in card){
+                var col;
+                if (card[i][0]=='$')
+                    col='黑桃';
+                else if (card[i][0]=='&')
+                    col='红桃';
+                else if (card[i][0]=='*')
+                    col='草花';
+                else
+                    col='方块';
+                var imgurl="poker/"+col+card[i].substr(1)+".png";
+                var img="<img src='"+imgurl+"' width='70px' height='86px'>";
+                mycard+=img;
+            }
+            document.getElementById('mycard').innerHTML=mycard;
+        }
+        // 开启背景音乐
+        function playBGM(){
+            document.getElementById('bgm').play();
+            document.getElementById('playbtn').style.display='';
+            document.getElementById('pausebtn').style.display='none';
+        }
+        // 静音
+        function pauseBGM(){
+            document.getElementById('bgm').pause();
+            document.getElementById('pausebtn').style.display='';
+            document.getElementById('playbtn').style.display='none';
+        }
+        // 身份验证
+        function check(){
+            $.ajax({
+                url:'https://api.shisanshui.rtxux.xyz/auth/validate',
+                type:'GET',
+                headers:{
+                    "Content-Type":'application/json',
+                    "X-Auth-Token":localStorage.getItem('token')
+                },
+                dataType:'json',
+                success:function(data){
+                    if (data['data']['user_id']==null){
+                        alert("登录过期，请重试");
+                        window.location.href='login.html';
+                    }
+                    else{
+                        document.getElementById("chupai").onclick=function () {
+                            document.getElementById("fapai").style.display="block"
+                            document.getElementById("chupai").style.display="none"
+                        }        
+                        if (localStorage.getItem('card')!=null)
+                            showCard();
+                        if (localStorage.getItem('gameid')!=null)
+                            document.getElementById('gameid').innerText="房间:"+localStorage.getItem('gameid');
+                    }
+                },
+                error:function(data){
+                    alert("登录过期，请重试");
+                }
+            });  
+        }
+        // 注销
+        function logout(){
+            if (localStorage.getItem('token')!=null){
+                $.ajax({
+                    url:'https://api.shisanshui.rtxux.xyz/auth/logout',
+                    type:'POST',
+                    headers:{
+                        "Content-Type":'application/json',
+                        "X-Auth-Token":localStorage.getItem('token')
+                    },
+                    dataType:'json',
+                    success:function(data){
+                        localStorage.removeItem('token');
+                        localStorage.removeItem('userid');
+                        localStorage.removeItem('gameid');
+                        localStorage.removeItem('card');
+                        window.location.href='login.html';
+                    },
+                    error:function(data){
+                        alert("注销失败，请重试");
+                    }
+                });  
+            }
+        }
+        // 开始对局
+        function openGame(){
+            $.ajax({
+                url:'https://api.shisanshui.rtxux.xyz/game/open',
+                type:'POST',
+                dataType:'json',
+                headers:{
+                    'X-Auth-Token':localStorage.getItem('token')
+                },
+                success:function(data){
+                    document.getElementById("chupai").style.display="block";
+                    document.getElementById("fapai").style.display="none";
+                    document.getElementById('gameid').innerText="房间:"+data['data']['id'];
+                    localStorage.setItem("gameid",data['data']['id']);
+                    localStorage.setItem("card",data['data']['card']);
+                    showCard();
+                },
+                error:function(data){
+                    alert("匹配异常，请重试");
+                }
+            });
+        }
+        // 输入文本
+        function inputText(){
+            document.getElementById('queryUser').placeholder='';
+        }
+        function formatDate(stamp) {
+            var now=new Date(stamp*1000);
+            var year = now.getFullYear();
+            var month = now.getMonth() + 1;
+            var date = now.getDate();
+            var hour = now.getHours();
+            var minute = now.getMinutes();
+            var second = now.getSeconds();
+            var s=year + "-" + month + "-" + date + " " + hour + ":" + minute + ":" + second;
+            return s;
+        }
+        function query(){
+            var username=document.getElementById('queryUser').value;
+            $.ajax({
+                url:'https://api.shisanshui.rtxux.xyz/history?player_id='+username+'&limit=3&page=1',
+                type:'GET',
+                dataType:'json',
+                headers:{
+                    'X-Auth-Token':localStorage.getItem('token')
+                },
+                success:function(data){
+                    for (var i=1;i<=3;++i){
+                        var card='card'+i;
+                        var score='hs'+i;
+                        var stamp='stamp'+i;
+                        var gameid='gameid'+i;
+                        document.getElementById(card).innerText=data['data'][i-1]['card'];
+                        document.getElementById(score).innerText=data['data'][i-1]['score'];
+                        document.getElementById(stamp).innerText=formatDate(data['data'][i-1]['timestamp']);
+                        document.getElementById(gameid).innerText=data['data'][i-1]['id'];
+                    }
+                },
+                error:function(data){
+                    alert('查询失败，请重试');
+                }
+            });
+        }
+        // 获取排行榜信息
+        function getRank(){
+            $.ajax({
+                url:'https://api.shisanshui.rtxux.xyz/rank',
+                type:'GET',
+                dataType:'json',
+                success:function(data){
+                    document.getElementById('paihangbang').style.display="";
+                    for (var i=1;i<=5;++i){
+                        var pid="pid"+i;
+                        var s="s"+i;
+                        var name="name"+i;
+                        document.getElementById(pid).innerText=data[i-1]['player_id'];
+                        document.getElementById(s).innerText=data[i-1]['score'];
+                        document.getElementById(name).innerText=data[i-1]['name'];
+                    }
+                },
+                error:function(data){
+                    alert("请求出错，请重试");
+                }
+            });
+        }
+        // 战绩查询
+        function showHistory(){
+            document.getElementById('perm').style.display="";
+            document.onkeypress = function (event) {
+                var e = event;
+                if (e && e.keyCode == 13) 
+                    query();
+            };
+        }
+        function hidder(){
+            document.getElementById('perm').style.display="none";
+            document.onkeypress = '';
+        }
+        //打开对局详情
+        function showDetail(id){                                     
+            document.getElementById('xiangqing').style.display="";
+            var s='https://api.shisanshui.rtxux.xyz/history/'+document.getElementById('gameid'+id).innerText;
+            console.log(s);
+            $.ajax({
+                url:s,
+                type:'GET',
+                dataType:'json',
+                headers:{
+                    'X-Auth-Token':localStorage.getItem('token')
+                },
+                success:function(data){
+                    for (var i=1;i<=4;++i){
+                        var uid="uid"+i;
+                        var uname="uname"+i;
+                        var ucard="ucard"+i;
+                        var uscore="uscore"+i;
+                        var card="["+data['data']['detail'][i-1]['card']+"]";
+                        document.getElementById(uid).innerText=data['data']['detail'][i-1]['player_id'];
+                        document.getElementById(uname).innerText=data['data']['detail'][i-1]['name'];
+                        document.getElementById(ucard).innerText=card.replace(/,/g,"]\n[");
+                        document.getElementById(uscore).innerText=data['data']['detail'][i-1]['score'];
+                    }
+                },
+                error:function(data){
+                    alert("请求出错，请重试");
+                }                
+            });
+        }
+        // 隐藏对局详情
+        function hidder2(){
+            document.getElementById('xiangqing').style.display="none";
+        }        
+        // 排行榜
+        function hidder1(){
+            document.getElementById('paihangbang').style.display="none";
+        }
+    </script>
+</head>
+<body  onload="check()" class="backgroundimg" background='img/对战bg.jpg' background-size="cover">
+<div>
+<audio id='bgm' src="BGM/Bobby Timmons - Moanin'.mp3" loop></audio>
+</div>
+<div class="juid"style="position: absolute ;left: 610px;top:8px;">
+</div>
+<div  style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 720px;top: -2px;" >
+    <p id='gameid' class="zhanjuid" style="position: absolute;opacity: 50% ;" >匹配大厅</p>
+</div>
+<div class="user"style="position: absolute ;left: 200px;top:500px;">
+    <img src='img/duck.jpg' width="100%" height="100%" position="fixed">
+</div>
+
+<img src="img/u50.png" onclick="getRank()" width="55px" height="52px" style="position: absolute;left:1275px;top:10px;">
+<img src="img/历史对战.png" onclick="showHistory()" width="55px" height="52px" style="position: absolute;left:1210px;top:10px;">
+<img src="img/注销.png" onclick="logout()" width="48px" height="47px" style="position: absolute;left:1345px;top:13px;">
+<img src="img/声音.png" id='playbtn' onclick="pauseBGM()" width="48px" height="47px" style="position: absolute;left:1150px;top:13px;display: none">
+<img src="img/静音.png" id='pausebtn' onclick="playBGM()" width="48px" height="47px" style="position: absolute;left:1150px;top:13px;">
+<div id='mycard' class="duizhancard" style="position: absolute;opacity: 50% ;width:915px;height: 89px;left: 400px;top:540px;" >
+
+</div>
+<div >
+    <input id="fapai" class="bt1" type="button" onclick="openGame()" style="display:block;position:fixed; left:693px; top:320px;border-radius:10px;background-color:#cf9447" value="匹配对局"  />
+</div>
+<div >
+    <input id="chupai" class="bt2" type="button"  style="display: none;position:fixed; left:1100px; top:400px;border-radius:10px;background-color:#25795f" value="智能出牌"  />
+</div>
+<!--历史对战-->
+<div id="perm" style="position: absolute;left: 0px;top:0px;display: none;">
+    <div class="c"style="position: absolute;left: 340px;top:60px;">
+
+    </div>
+    <!--<div class="c1" style="position: absolute;left: 340px;top:60px;  ">
+    </div>-->
+    <div class="c2"style="position: absolute;opacity: 50% ;left: 340px;top:60px;">
+    </div>
+    <div>
+        <img src="img/战绩统计.png" style="position: absolute;opacity: 50% ;height: 66px;left: 629px;top:60px; ">
+        <div>
+            <img  onclick="hidder()"  id="guanbiperm" src="img/uu.png" style="position: absolute;opacity: 50% ;width:30px;height: 30px;left: 1187px;top:68px; ">
+        </div>
+        <!-- <img src="img/uu.png" style="position: absolute;opacity: 50% ;width:30px;height: 30px;left: 1187px;top:68px; ">-->
+    </div>
+    <div class="c3"style="position: absolute;opacity: 50% ;left: 340px;top:202px;">
+    </div>
+    <div>
+        <img src="img/zj.png"style="position: absolute;opacity: 50% ;height: 66px;left: 345px;top:138px;">
+    </div>
+    <div>
+        <div onclick="showDetail(1)"  id="openxq">
+            <img   src="img/格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:232px;">
+            <div id='card1' class="historycard" style="position: absolute;opacity: 50% ;width:350px;height: 66px;left: 400px;top:240px;" >
+            
+            </div>
+        </div>
+        <!--   <img src="img/格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:232px;">-->
+        <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:250px;" >
+            <p id='stamp1' class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+        </div>
+        <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:250px;" >
+            <p id='hs1' class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+        </div>
+        <div id='gameid1' style="position: absolute;opacity: 50% ;display:none;width:100px;height: 33px;left: 1080px;top:250px;" >
+        </div>        
+        <div onclick="showDetail(2)"  id="openxq2">
+            <img   src="img/格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:332px;">
+            <div id='card2' class="historycard" style="position: absolute;opacity: 50% ;width:350px;height: 66px;left: 400px;top:340px;" >
+            </div>
+        </div>
+        <!--<img src="img/格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:332px;">-->
+        <div class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:350px;" >
+            <p id='stamp2' class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+        </div>
+        <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:350px;" >
+            <p id='hs2' class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+        </div>
+        <div id='gameid2' style="position: absolute;opacity: 50% ;display:none;width:100px;height: 33px;left: 1080px;top:250px;" >
+        </div>
+        <div onclick="showDetail(3)"  id="openxq3">
+            <img   src="img/格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:432px;">
+            <div id='card3' class="historycard" style="position: absolute;opacity: 50% ;width:350px;height: 66px;left: 400px;top:440px;" >
+            </div>
+        </div>
+        <!-- <img src="img/格子1.png"style="position: absolute;opacity: 50% ;width:839px;height: 86px;left: 360px;top:432px;">-->
+        <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 800px;top:450px;" >
+            <p id='stamp3' class="c4" style="position: absolute;opacity: 50% ;" >时间戳：</p>
+        </div>
+        <div  class="score" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left: 980px;top:450px;" >
+            <p id='hs3' class="c4" style="position: absolute;opacity: 50% ;" >局分：</p>
+        </div>
+        <div id='gameid3' style="position: absolute;opacity: 50% ;display:none;width:100px;height: 33px;left: 1080px;top:250px;" >
+        </div>
+        <div  class="score" style="position: absolute;opacity: 80% ;width:200px;height: 33px;left: 700px;top:167px;" >
+            <input type='text' id='queryUser' onfocus="inputText()" placeholder='  输入玩家的id,回车查询' class="zhanjuid" style="position: absolute;left:7px;top:5px;height: 25px;width: 188px;border-radius:5px; border: 0.5px">
+        </div>
+        <!--  <a  class="c4" style="position: absolute;opacity: 50% ;left: 800px;top:488px" >时间戳：</a>-->
+    </div>
+</div>
+
+<!--排行榜-->
+<div id="paihangbang" style="position: absolute;left: 0px;top:0px;display: none;">
+
+    <img src="img/排行榜.png" width="876px" height="137px" style="position: absolute;left:640px;top:30px;">
+    <img src="img/u50.png" width="80px" height="77px" style="position: absolute;left:460px;top:50px;">
+    <img src="img/u52.png" width="38px" height="38px" style="position: absolute;left:1050px;top:50px;">
+    <img src="img/u53.png" width="38px" height="38px" style="position: absolute;left:1090px;top:50px;">
+    <div>
+        <img  onclick="hidder1()"  id="guanbiphb" src="img/u54.png" width="38px" height="38px" style="position: absolute;left:1130px;top:50px;">
+    </div>
+    <img src="img/横线.png"  style="position: absolute;left:372px;top:130px; ">
+    <div>
+        <img src="img/格子.png"  style="position: absolute;left:440px;top:150px; ">
+        <img src="img/u60.png"  width="68px" height="64px" style="position: absolute;left:550px;top:148px; ">
+        <img src="img/u61.png"  width="68px" height="64px" style="position: absolute;left:738px;top:148px; ">
+        <img src="img/u62.png"  width="68px" height="64px" style="position: absolute;left:940px;top:148px; ">
+        <img src="img/格子.png" style="position: absolute;left:440px;top:225px; ">
+        <img src="img/u55.png" width="62px" height="55px" style="position: absolute;left:550px;top:230px; ">
+        <div  style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:210px;" >
+            <p id='s1' class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div  style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:215px;" >
+            <p id='pid1' class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div  style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:215px;" >
+            <p id='name1' class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="img/格子.png" style="position: absolute;left:440px;top:300px; ">
+        <img src="img/u56.png" width="62px" height="55px" style="position: absolute;left:550px;top:305px; ">
+        <div  style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:285px;" >
+            <p id='s2' class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div  style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:290px;" >
+            <p id='pid2' class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div  style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:290px;" >
+            <p id='name2' class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="img/格子.png" style="position: absolute;left:440px;top:375px; ">
+        <img src="img/u57.png" width="62px" height="55px" style="position: absolute;left:550px;top:380px; ">
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:360px;" >
+            <p id='s3' class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:365px;" >
+            <p id='pid3' class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:365px;" >
+            <p id='name3' class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="img/格子.png" style="position: absolute;left:440px;top:450px; ">
+        <img src="img/u58.png" width="62px" height="55px" style="position: absolute;left:550px;top:455px; ">
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:435px;" >
+            <p id='s4' class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:440px;" >
+            <p id='pid4' class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:440px;" >
+            <p id='name4' class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+        <img src="img/格子.png" style="position: absolute;left:440px;top:525px; ">
+        <img src="img/u59.png" width="62px" height="55px" style="position: absolute;left:550px;top:530px; ">
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 942px;top:510px;" >
+            <p id='s5' class="score1" style="position: absolute;opacity: 50% ;" >score</p>
+        </div>
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 612px;top:515px;" >
+            <p id='pid5' class="player_id" style="position: absolute;opacity: 50% ;" >player_id</p>
+        </div>
+        <div style="position: absolute;opacity: 50% ;width:100px;height: 60px;left: 738px;top:515px;" >
+            <p id='name5' class="name" style="position: absolute;opacity: 50% ;" >name</p>
+        </div>
+
+
+    </div>
+</div>
+<!--对局详情-->
+<div id="xiangqing" style="position: absolute;left: 0px;top:0px;display:none">
+    <div class="kuang" style="position: absolute;left: 340px;top:60px;">
+    </div>
+    <div>
+        <img class="kuang2" src="img/四个玩家框.png" style="position: absolute;left: 340px;top:180px;">
+    </div>
+    <div>
+        <img src="img/对局详情.png" style="position: absolute;left: 680px;top:75px;">
+    </div>
+    <div>
+        <img src="img/玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 402px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:422px;top:185px;" >
+            <p id='uid1' class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:422px;top:285px;" >
+            <p id='uname1' class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!--    <p class="username1" style="position: absolute;left: 422px;top: 185px  ">赌王</p>-->
+        <img src="img/玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 608px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:628px;top:185px;" >
+            <p id='uid2' class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:628px;top:285px;" >
+            <p id='uname2' class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!-- <p class="username1" style="position: absolute;left: 628px;top: 185px  ">赌王</p>-->
+        <img src="img/玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 822px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:824px;top:185px;" >
+            <p id='uid3' class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:824px;top:285px;" >
+            <p id='uname3' class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!--    <p class="username1" style="position: absolute;left: 842px;top: 185px  ">赌王</p>-->
+        <img src="img/玩家头像.jpg" style="position: absolute;height:72px;width:72px;left: 1032px;top:225px;">
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:1052px;top:185px;" >
+            <p id='uid4' class="username1" style="position: absolute;opacity: 50% ;" >userid</p>
+        </div>
+        <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:1052px;top:285px;" >
+            <p id='uname4' class="username1" style="position: absolute;opacity: 50% ;" >username</p>
+        </div>
+        <!--   <p class="username1" style="position: absolute;left: 1052px;top: 185px  ">赌王</p>-->
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:150px;height: 200px;left: 385px;top:360px;" >
+        <p id='ucard1'>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:150px;height: 200px;left: 589px;top:360px;" >
+        <p id='ucard2'>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:150px;height: 200px;left: 804px;top:360px;" >
+        <p id='ucard3'>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="card" style="position: absolute;opacity: 50% ;width:150px;height: 200px;left: 1014px;top:360px;" >
+        <p id='ucard4'>"card": [
+            "&J $K &A",
+            "#2 &2 #3 *3 $5",
+            "&3 #4 *5 $6 #7"
+            ]</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:391px;top:590px;" >
+        <p id='uscore1' class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:595px;top:590px;" >
+        <p id='uscore2' class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:810px;top:590px;" >
+        <p id='uscore3' class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+    <div  class="timestamp1" style="position: absolute;opacity: 50% ;width:100px;height: 33px;left:1020px;top:590px;" >
+        <p id='uscore4' class="username1" style="position: absolute;opacity: 50% ;" >"score": -3</p>
+    </div>
+
+    <img src="img/金币.png" style=" height:40px;width:40px;position: absolute;left: 341px;top:590px;">
+    <div >
+        <img   onclick="hidder2()" id="guanbixiangqing" src="img/u54.png" style=" height:40px;width:40px;position: absolute;left: 1120px;top:70px;">
+    </div>
+</div>
+</body>
+</html>
