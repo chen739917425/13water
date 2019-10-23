@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+    <style type="text/css">
+   .bgi{
+            text-align: center;
+        }
+        .img{
+           height: 734px;
+            width: 1510px;
+        }
+        .img1{
+                transform: scale(0.82);
+        }
+   .backgroundimg{
+       background-size: cover;
+   }
+
+
+   .lgD  {
+
+       font-family: 微软雅黑,cursive;
+       font-size: 14px;
+       width: 206px;
+       height: 58px;
+       opacity:0.74;
+       padding-left:65px ;
+
+   }
+    .bt{
+        font-family: 微软雅黑,cursive;
+        width: 163px;
+        height: 45px;
+        border: 0.5px;
+        font-size: medium;
+        color: rgba(255,255,255,0.88);
+        text-shadow:5px 5px 5px black;
+
+
+
+    }
+    .cb{
+        position:fixed;
+        left:700px;
+        top:480px;
+
+
+    }
+    label{ font-size: 14px;
+        font-family: 微软雅黑,cursive;
+
+    }
+     p{
+         font-size: 14px;
+         font-family: 微软雅黑,serif;
+         color:#ebcc90;
+     }
+
+    </style>
+   <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+   <script type="text/javascript">
+        function register(){
+            var name=document.getElementById('username').value;
+            var psw=document.getElementById('userpsw').value;
+            var data={
+                "username":name,
+                "password":psw
+            }
+            $.ajax({
+                url:'https://api.shisanshui.rtxux.xyz/auth/register',
+                type:'POST',
+                data:JSON.stringify(data),
+                headers:{
+                    "Content-Type":'application/json'
+                },
+                success:function(data){
+                    alert("注册成功，登陆游戏开始对局吧~");
+                    denglu();
+                },
+                error:function(data){
+                    alert("注册失败，请重试");
+                }
+            });            
+        }
+        function login(){
+            var name=document.getElementById('username').value;
+            var psw=document.getElementById('userpsw').value;
+            var data={
+                "username":name,
+                "password":psw
+            }
+            $.ajax({
+                url:'https://api.shisanshui.rtxux.xyz/auth/login',
+                type:'POST',
+                data:JSON.stringify(data),
+                headers:{
+                    "Content-Type":'application/json'
+                },
+                success:function(data){
+                    localStorage.setItem("token",data['data']['token']);
+                    localStorage.setItem("userid",data['data']['user_id']);
+                    window.location.href='game.html';
+                },
+                error:function(data){
+                    alert("登录异常，请重试");
+                }
+            });
+        }
+        function zhuce(){
+            document.getElementById('zhuce').style.display="";
+            document.getElementById('denglu').style.display="none";
+        }
+        function denglu(){
+            document.getElementById('denglu').style.display="";
+            document.getElementById('zhuce').style.display="none";
+        }
+        function hidder(){
+            document.getElementById('xiangqing').style.display="none";
+        }
+    </script>
+</head>
+<!--<body onload="denglu()">-->
+<body  onload="denglu()" class="backgroundimg" background='img/登录背景图.jpg' background-size="cover">
+    <div class="bgi">
+<!--    <img  src="img/登录背景图.jpg" class="img">-->
+        <img  src="img/扑克牌.png" height="181" width="181" style="position:absolute;left:700px;top:150px;">
+
+    </div>
+    <img src="img/十三水.png" class="img1"style="position:absolute; left:250px; top:23px; " >
+
+<div >
+    <span ></span>
+    <input class="lgD"type="text"  id="username" placeholder="          输入用户名" style="position:fixed; left:650px; top:320px;border-radius:10px; border: 0.5px ">
+</div>
+<div >
+    <span ></span>
+    <input  class="lgD" type="password" id="userpsw" placeholder="          输入密码" style="position:fixed; left:650px; top:400px;border-radius:10px; border: 0.5px ">
+
+</div>
+<div>
+    <!--<input type="checkbox" id="check1" style="position:fixed; left:650px; top:480px;"  >-->
+    <!--<input type="checkbox" id="check1" value="123" name="name" class="check">-->
+   <!-- <p  style="position: fixed;left: 655px;top: 464px;">注册</p>-->
+
+</div>
+<div >
+    <input id="denglu" class="bt" type="button" onclick="login()" style="position:fixed; left:700px; top:530px;border-radius:10px;background-color:#CFA85A" value="进入游戏"  />
+    <input id="zhuce" class="bt" type="button" onclick="register()" style="position:fixed; left:700px; top:530px;border-radius:10px;background-color:#CFA85A" value="注册"  />
+</div>
+    <div>
+    <p id="zc" onclick="zhuce()" style="position: fixed;left: 880px;top: 450px;"  >注册</p></div>
+    <img src="img/user.png" style="position:absolute; height:50px;width:50px;left:650px; top:325px; " >
+    <img src="img/lock.png" style="position:absolute; height:45px;width:45px;left:650px; top:405px; " >
+</body>
+</html>
